@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DomainController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +34,20 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [DomainController::class, 'search'])->name('search');
             Route::post('/store', [DomainController::class, 'store'])->name('store');
             Route::post('/delete', [DomainController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('user')->name('user.')->group(function () {
+            Route::get('/index', [UserController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [UserController::class, 'detail'])->name('detail');
+            Route::get('/search', [UserController::class, 'search'])->name('search');
+            Route::post('/store', [UserController::class, 'store'])->name('store');
+            Route::post('/delete', [UserController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('customer')->name('customer.')->group(function () {
+            Route::get('/index', [CustomerController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [CustomerController::class, 'detail'])->name('detail');
+            Route::get('/search', [CustomerController::class, 'search'])->name('search');
+            Route::post('/store', [CustomerController::class, 'store'])->name('store');
+            Route::post('/delete', [CustomerController::class, 'destroy'])->name('destroy');
         });
     });
 
