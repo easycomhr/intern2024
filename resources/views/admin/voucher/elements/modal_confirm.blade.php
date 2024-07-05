@@ -9,7 +9,7 @@
             </div>
 
             <form method="post" id="form-delete" enctype="multipart/form-data">
-            @csrf
+                @csrf
                 <input type="hidden" name="id">
                 <div class="modal-body">
 

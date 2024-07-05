@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\Function_medicinalController;
+use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [Function_medicinalController::class, 'search'])->name('search');
             Route::post('/store', [Function_medicinalController::class, 'store'])->name('store');
             Route::post('/delete', [Function_medicinalController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('voucher')->name('voucher.')->group(function () {
+            Route::get('/index', [VoucherController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [VoucherController::class, 'detail'])->name('detail');
+            Route::get('/search', [VoucherController::class, 'search'])->name('search');
+            Route::post('/store', [VoucherController::class, 'store'])->name('store');
+            Route::post('/delete', [VoucherController::class, 'destroy'])->name('destroy');
         });
     });
 

@@ -33,6 +33,12 @@
             <p>Function_medicinal</p>
         </a>
     </li>
+    <li class="nav-item">
+        <a href="{{ route('admin.voucher.index') }}" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Voucher</p>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a href="{{ route('logout') }}" class="nav-link">
