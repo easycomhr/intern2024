@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SupplierController;
+use App\Http\Controllers\Admin\Function_medicinalController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -56,6 +57,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [SupplierController::class, 'search'])->name('search');
             Route::post('/store', [SupplierController::class, 'store'])->name('store');
             Route::post('/delete', [SupplierController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('function_medicinal')->name('function_medicinal.')->group(function () {
+            Route::get('/index', [Function_medicinalController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [Function_medicinalController::class, 'detail'])->name('detail');
+            Route::get('/search', [Function_medicinalController::class, 'search'])->name('search');
+            Route::post('/store', [Function_medicinalController::class, 'store'])->name('store');
+            Route::post('/delete', [Function_medicinalController::class, 'destroy'])->name('destroy');
         });
     });
 
