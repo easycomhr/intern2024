@@ -1,7 +1,7 @@
 
 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-{{--    <li class="nav-header">MULTI LEVEL EXAMPLE</li>--}}
+    {{--    <li class="nav-header">MULTI LEVEL EXAMPLE</li>--}}
 
     <li class="nav-item">
         <a href="{{ route('admin.domain.index') }}" class="nav-link">
@@ -19,6 +19,12 @@
         <a href="{{ route('admin.customer.index') }}" class="nav-link">
             <i class="nav-icon far fa-circle text-warning"></i>
             <p>Customer</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('admin.supplier.index') }}" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Supplier</p>
         </a>
     </li>
 

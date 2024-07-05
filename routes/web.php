@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -48,6 +49,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [CustomerController::class, 'search'])->name('search');
             Route::post('/store', [CustomerController::class, 'store'])->name('store');
             Route::post('/delete', [CustomerController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('supplier')->name('supplier.')->group(function () {
+            Route::get('/index', [SupplierController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [SupplierController::class, 'detail'])->name('detail');
+            Route::get('/search', [SupplierController::class, 'search'])->name('search');
+            Route::post('/store', [SupplierController::class, 'store'])->name('store');
+            Route::post('/delete', [SupplierController::class, 'destroy'])->name('destroy');
         });
     });
 
