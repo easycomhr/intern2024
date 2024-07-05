@@ -29,14 +29,14 @@ class UserController extends Controller
         if($response){
             return response()->json([
                 'success'   => true,
-                'message'   => "保存が成功しました。",
+                'message'   => "Save successful。",
                 'data'      => $response,
             ]);
         }
 
         return response()->json([
             'success'   => false,
-            'message'   => "保存に失敗しました。",
+            'message'   => "Save failed。",
         ]);
 
     }
@@ -53,7 +53,7 @@ class UserController extends Controller
 
         return response()->json([
             'success'   => false,
-            'message'   => "保存に失敗しました。",
+            'message'   => "Save failed。",
         ]);
 
     }
@@ -65,14 +65,14 @@ class UserController extends Controller
         if($response){
             return response()->json([
                 'success'   => true,
-                'message'   => "正常に削除されました。",
+                'message'   => "Successfully deleted。",
                 'data'      => $response,
             ]);
         }
 
         return response()->json([
             'success'   => false,
-            'message'   => "削除に失敗しました。",
+            'message'   => "Delete failed。",
         ]);
 
     }

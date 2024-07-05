@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Services\CustomerService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -19,6 +20,8 @@ class CustomerController extends Controller
 
     public function index(Request $request){
         $customers = $this->customerService->search($request);
+        $a=array();
+        $a=config('constants.nation');
         return view('admin.customer.index', compact('customers'));
     }
 
@@ -29,14 +32,14 @@ class CustomerController extends Controller
         if($response){
             return response()->json([
                 'success'   => true,
-                'message'   => "保存が成功しました。",
+                'message'   => "Save successful.",
                 'data'      => $response,
             ]);
         }
 
         return response()->json([
             'success'   => false,
-            'message'   => "保存に失敗しました。",
+            'message'   => "Save failed。",
         ]);
 
     }
@@ -53,7 +56,7 @@ class CustomerController extends Controller
 
         return response()->json([
             'success'   => false,
-            'message'   => "保存に失敗しました。",
+            'message'   => "Save failed。",
         ]);
 
     }
@@ -65,14 +68,14 @@ class CustomerController extends Controller
         if($response){
             return response()->json([
                 'success'   => true,
-                'message'   => "正常に削除されました。",
+                'message'   => "Successfully deleted。",
                 'data'      => $response,
             ]);
         }
 
         return response()->json([
             'success'   => false,
-            'message'   => "削除に失敗しました。",
+            'message'   => "Delete failed。",
         ]);
 
     }
