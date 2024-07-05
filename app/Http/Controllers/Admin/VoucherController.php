@@ -3,29 +3,29 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
-use App\Services\CustomerService;
+use App\Models\Voucher;
+use App\Services\VoucherService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
-class CustomerController extends Controller
+class VoucherController extends Controller
 {
 
-    protected CustomerService $customerService;
+    protected VoucherService $voucherService;
 
-    public function __construct(CustomerService $customerService)
+    public function __construct(VoucherService $voucherService)
     {
-        $this->customerService = $customerService;
+        $this->voucherService = $voucherService;
     }
 
     public function index(Request $request){
-        $customers = $this->customerService->search($request);
-        return view('admin.customer.index', compact('customers'));
+        $vouchers = $this->voucherService->search($request);
+        return view('admin.voucher.index', compact('vouchers'));
     }
 
     public function store(Request $request){
 
-        $response = $this->customerService->store($request);
+        $response = $this->voucherService->store($request);
 
         if($response){
             return response()->json([
@@ -44,7 +44,7 @@ class CustomerController extends Controller
 
     public function detail(Request $request){
 
-        $response = $this->customerService->findById($request->id);
+        $response = $this->voucherService->findById($request->id);
         if($response){
             return response()->json([
                 'success'   => true,
@@ -61,7 +61,7 @@ class CustomerController extends Controller
 
     public function destroy(Request $request){
 
-        $response = $this->customerService->destroy($request);
+        $response = $this->voucherService->destroy($request);
 
         if($response){
             return response()->json([
