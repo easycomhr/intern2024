@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\Function_medicinalController;
+use App\Http\Controllers\Admin\Preparation_typeController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -64,6 +65,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [Function_medicinalController::class, 'search'])->name('search');
             Route::post('/store', [Function_medicinalController::class, 'store'])->name('store');
             Route::post('/delete', [Function_medicinalController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('preparation_type')->name('preparation_type.')->group(function () {
+            Route::get('/index', [Preparation_typeController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [Preparation_typeController::class, 'detail'])->name('detail');
+            Route::get('/search', [Preparation_typeController::class, 'search'])->name('search');
+            Route::post('/store', [Preparation_typeController::class, 'store'])->name('store');
+            Route::post('/delete', [Preparation_typeController::class, 'destroy'])->name('destroy');
         });
     });
 
