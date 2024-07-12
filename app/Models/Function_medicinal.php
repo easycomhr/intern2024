@@ -15,5 +15,9 @@ class function_medicinal extends Model
         'name',
         'display',
     ];
+    public function categorys()
+    {
+        return $this->hasMany(Category::class, 'function_id');
+    }
     public $timestamps = false;
 }
