@@ -19,5 +19,10 @@ class category extends Model
     {
         return $this->belongsTo(Function_medicinal::class, 'function_id');
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
     public $timestamps = false;
 }
