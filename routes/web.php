@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\Function_medicinalController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\Preparation_typeController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -80,6 +81,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [Preparation_typeController::class, 'search'])->name('search');
             Route::post('/store', [Preparation_typeController::class, 'store'])->name('store');
             Route::post('/delete', [Preparation_typeController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('category')->name('category.')->group(function () {
+            Route::get('/index', [CategoryController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [CategoryController::class, 'detail'])->name('detail');
+            Route::get('/search', [CategoryController::class, 'search'])->name('search');
+            Route::post('/store', [CategoryController::class, 'store'])->name('store');
+            Route::post('/delete', [CategoryController::class, 'destroy'])->name('destroy');
         });
     });
 

@@ -2,31 +2,31 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Http\Controllers\Controller;
-use App\Services\Function_medicinalService;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use App\Models\Function_medicinal;
 
-class Function_medicinalController extends Controller
+class CategoryController extends Controller
 {
 
-    protected Function_medicinalService $function_medicinalService;
+    protected CategoryService $categoryService;
 
-    public function __construct(Function_medicinalService $function_medicinalService)
+    public function __construct(CategoryService $categoryService)
     {
-        $this->function_medicinalService = $function_medicinalService;
+        $this->categoryService = $categoryService;
     }
 
     public function index(Request $request){
-        $function_medicinals = $this->function_medicinalService->search($request);
-        return view('admin.function_medicinal.index', compact('function_medicinals'));
+        $categorys = $this->categoryService->search($request);
+        $functions = Function_medicinal::all();
+        return view('admin.category.index', compact('categorys', 'functions'));
     }
 
     public function store(Request $request){
 
-        $response = $this->function_medicinalService->store($request);
-
+        $response = $this->categoryService->store($request);
 
         if($response){
             return response()->json([
@@ -45,7 +45,7 @@ class Function_medicinalController extends Controller
 
     public function detail(Request $request){
 
-        $response = $this->function_medicinalService->findById($request->id);
+        $response = $this->categoryService->findById($request->id);
         if($response){
             return response()->json([
                 'success'   => true,
@@ -62,7 +62,7 @@ class Function_medicinalController extends Controller
 
     public function destroy(Request $request){
 
-        $response = $this->function_medicinalService->destroy($request);
+        $response = $this->categoryService->destroy($request);
 
         if($response){
             return response()->json([

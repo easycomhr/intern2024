@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class function_medicinal extends Model
+class category extends Model
 {
     use HasFactory;
 
-    protected $table = 'function_medicinals';
+    protected $table = 'categorys';
 
     protected $fillable = [
         'name',
-        'display',
+        'function_id',
     ];
-    public function categorys()
+    public function Function_medicinal()
     {
-        return $this->hasMany(Category::class, 'function_id');
+        return $this->belongsTo(Function_medicinal::class, 'function_id');
     }
     public $timestamps = false;
 }

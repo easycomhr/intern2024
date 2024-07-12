@@ -45,6 +45,12 @@
             <p>Preparation_type</p>
         </a>
     </li>
+    <li class="nav-item">
+        <a href="{{ route('admin.category.index') }}" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Category</p>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a href="{{ route('logout') }}" class="nav-link">
