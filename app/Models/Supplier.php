@@ -17,5 +17,10 @@ class supplier extends Model
         'email',
         'address',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'supplier_id');
+    }
     public $timestamps = false;
 }

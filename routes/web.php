@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\Function_medicinalController;
 use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\Preparation_typeController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -88,6 +89,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [CategoryController::class, 'search'])->name('search');
             Route::post('/store', [CategoryController::class, 'store'])->name('store');
             Route::post('/delete', [CategoryController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('product')->name('product.')->group(function () {
+            Route::get('/index', [ProductController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [ProductController::class, 'detail'])->name('detail');
+            Route::get('/search', [ProductController::class, 'search'])->name('search');
+            Route::post('/store', [ProductController::class, 'store'])->name('store');
+            Route::post('/delete', [ProductController::class, 'destroy'])->name('destroy');
         });
     });
 

@@ -14,5 +14,11 @@ class preparation_type extends Model
     protected $fillable = [
         'name',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'pre_type_id');
+    }
+
     public $timestamps = false;
 }
