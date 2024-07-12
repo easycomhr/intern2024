@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\VoucherController;
 use App\Http\Controllers\Admin\Preparation_typeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\Product_detailController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -96,6 +97,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [ProductController::class, 'search'])->name('search');
             Route::post('/store', [ProductController::class, 'store'])->name('store');
             Route::post('/delete', [ProductController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('product_detail')->name('product_detail.')->group(function () {
+            Route::get('/index', [Product_detailController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [Product_detailController::class, 'detail'])->name('detail');
+            Route::get('/search', [Product_detailController::class, 'search'])->name('search');
+            Route::post('/store', [Product_detailController::class, 'store'])->name('store');
+            Route::post('/delete', [Product_detailController::class, 'destroy'])->name('destroy');
         });
     });
 

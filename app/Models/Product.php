@@ -40,6 +40,10 @@ class product extends Model
     {
         return $this->belongsTo(Preparation_type::class, 'pre_type_id');
     }
+    public function product_details()
+    {
+        return $this->hasMany(Product_detail::class, 'product_id');
+    }
 
     public $timestamps = false;
 }
