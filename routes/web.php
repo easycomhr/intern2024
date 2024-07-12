@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DomainController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\Function_medicinalController;
@@ -104,6 +105,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [Product_detailController::class, 'search'])->name('search');
             Route::post('/store', [Product_detailController::class, 'store'])->name('store');
             Route::post('/delete', [Product_detailController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('image')->name('image.')->group(function () {
+            Route::get('/index', [ImageController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [ImageController::class, 'detail'])->name('detail');
+            Route::get('/search', [ImageController::class, 'search'])->name('search');
+            Route::post('/store', [ImageController::class, 'store'])->name('store');
+            Route::post('/delete', [ImageController::class, 'destroy'])->name('destroy');
         });
     });
 
