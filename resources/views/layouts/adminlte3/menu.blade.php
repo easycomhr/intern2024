@@ -57,6 +57,12 @@
             <p>Product</p>
         </a>
     </li>
+    <li class="nav-item">
+        <a href="{{ route('admin.product_detail.index') }}" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Product Detail</p>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a href="{{ route('logout') }}" class="nav-link">
