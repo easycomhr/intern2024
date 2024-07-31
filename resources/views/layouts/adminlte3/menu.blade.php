@@ -69,6 +69,18 @@
             <p>Image</p>
         </a>
     </li>
+    <li class="nav-item">
+        <a href="{{ route('admin.invoice.index') }}" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Invoice</p>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="{{ route('admin.invoice_detail.index') }}" class="nav-link">
+            <i class="nav-icon far fa-circle text-warning"></i>
+            <p>Invoice detail</p>
+        </a>
+    </li>
 
     <li class="nav-item">
         <a href="{{ route('logout') }}" class="nav-link">

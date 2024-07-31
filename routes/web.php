@@ -3,6 +3,8 @@
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DomainController;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\Invoice_detailController;
+use App\Http\Controllers\Admin\InvoiceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\Function_medicinalController;
@@ -112,6 +114,20 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/search', [ImageController::class, 'search'])->name('search');
             Route::post('/store', [ImageController::class, 'store'])->name('store');
             Route::post('/delete', [ImageController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('invoice')->name('invoice.')->group(function () {
+            Route::get('/index', [InvoiceController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [InvoiceController::class, 'detail'])->name('detail');
+            Route::get('/search', [InvoiceController::class, 'search'])->name('search');
+            Route::post('/store', [InvoiceController::class, 'store'])->name('store');
+            Route::post('/delete', [InvoiceController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('invoice_detail')->name('invoice_detail.')->group(function () {
+            Route::get('/index', [Invoice_detailController::class, 'index'])->name('index');
+            Route::get('/detail/{id}', [Invoice_detailController::class, 'detail'])->name('detail');
+            Route::get('/search', [Invoice_detailController::class, 'search'])->name('search');
+            Route::post('/store', [Invoice_detailController::class, 'store'])->name('store');
+            Route::post('/delete', [Invoice_detailController::class, 'destroy'])->name('destroy');
         });
     });
 
